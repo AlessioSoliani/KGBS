@@ -54,19 +54,7 @@
       mask-image: linear-gradient(black 70%, transparent);
       -webkit-mask-image: linear-gradient(black 70%, transparent);
     }
-    &.mask-pattern {
-      top: 300px;
-      mask-image: url("data:image/svg+xml, %3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 12.21 10.57%27%3E%3Cpath fill=%27%23ffffff%27 d=%27M6.1 0h6.11L9.16 5.29 6.1 10.57 3.05 5.29 0 0h6.1z%27/%3E%3C/svg%3E"), linear-gradient(black calc(100% - 30px), transparent calc(100% - 30px));
-      mask-size: auto 30px, 100% 100%;
-      mask-repeat: repeat-x, no-repeat;
-      mask-position: left bottom, top left;
-      -webkit-mask-size: auto 30px, 100% 100%;
-      -webkit-mask-repeat: repeat-x, no-repeat;
-      -webkit-mask-position: left bottom, top left;
-    }
-    @media (min-width: 640px) {
-      padding: 16px 50px 30px 50px;
-    }
+    
   }
   nav.is-hidden {
     transform: translateY(-100%);
@@ -75,12 +63,15 @@
 
 
   .logo{
-    width: 9vh ;
-    height: 5vh;
-    margin-bottom: 2px;
+    width: 10vh ;
+    height: 7vh;
+    
   }
 
-
+  .titoloNav{
+    font-size:large;
+    width: 20vw;
+  }
 
 
   a {
@@ -135,66 +126,45 @@
     &::before {
       content: url("data:image/svg+xml, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2024.8%2018.92%27%20width=%2724.8%27%20height=%2718.92%27%3E%3Cpath%20d=%27M23.8,9.46H1m22.8,8.46H1M23.8,1H1%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-linecap=%27round%27%20stroke-width=%272%27%2F%3E%3C%2Fsvg%3E")
     }
-    @media (min-width: 640px) {
+    @media (min-width: 991px) {
       display: none;
     }
   }
 
-  .hero-content {
-    opacity: 0;
-    transition: opacity 0.5s ease;
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden; 
+    margin-bottom: 0;
   }
   
-  .show-hero .hero-content {
+  #video-homepage {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
     opacity: 1;
   }
+
+  .hero-content {
+    color:white;
+    font-weight: bold;
+    margin-top: 100px;
+    opacity: 0;
+    transition: opacity 5.5s ease;
+  }
+  
+  .show-hero {
+    /* z-index: 0; */
+    opacity: 2;
+  }
   
   
-  .background-image {   
-    margin-top: 50px;
-    max-width: 1000px;
-    width: 100%;
-    height: 20vh; /* Imposta l'altezza al 70% dell'altezza della viewport */
-    background-image: url('/public/media/logoBody.png'); /* Percorso alla tua immagine */
-    background-size: cover; /* L'immagine copre tutto il contenitore */
-    background-position: center; /* Centra l'immagine */
-    background-repeat: no-repeat; /* Non ripetere l'immagine */
-}
+  
 
-@media (max-width: 1200px) {
-    .background-image {
-      width: 100%;
-      margin-left: 20px;
-      margin-right: 20px;
-        height: 17vh; /* Altezza adattata per schermi più piccoli */
-    }
-}
-
-@media (max-width: 992px) {
-    .background-image {
-      margin-left: 20px;
-      width: 100%;
-      margin-right: 20px;
-        height: 14vh; /* Altezza adattata per schermi più piccoli */
-    }
-}
-
-@media (max-width: 768px) {
-    .background-image {
-      width: 100%;
-      margin-left: 20px;
-      margin-right: 20px;
-        height: 10vh; /* Altezza adattata per schermi ancora più piccoli */
-    }
-}
-
-@media (max-width: 576px) {
-    .background-image {
-      width: 100%;
-      margin-left: 20px;
-      margin-right: 20px;
-        height: 7vh; /* Altezza adattata per schermi molto piccoli */
-    }
-}
 
 
