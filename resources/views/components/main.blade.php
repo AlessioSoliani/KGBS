@@ -10,7 +10,11 @@
 </head>
 <body class="bgrPrimario" >
 
+
 <x-nav/>
+
+
+
     {{$slot}}
     
 </body>
