@@ -37,7 +37,7 @@
   .logoStyle{
     
     width: 25vw;
-    height: 8vh;
+    height: 9vh;
     border-radius: 5px;
   }
 
@@ -48,7 +48,101 @@
     z-index: 1030; /* Bootstrap default z-index for fixed elements */
   }
 
-  .hero {
+  ul{
+    max-height: 30px;
+    /* background: rgb(110,175,222); */
+    background: linear-gradient(90deg, rgba(110,175,222,1) 0%, rgba(240,231,210,1) 36%, rgba(240,221,194,1) 90%);
+    border-radius: 4px;
+  }
+
+  .NavancorStyle{
+    color:  rgb(66, 59, 52);
+    text-decoration: none;
+    position: relative; /* Necessario per posizionare correttamente il pseudo-elemento */
+    display: inline-block;
+    padding-bottom: 2px;    
+  }
+
+  .NavancorStyle::after{
+    content: '';
+    position: absolute;
+    /* display: inline-block; */
+    width: 0;
+    height:2px;
+    bottom: 2px;
+    left: 0;
+    background-color: rgb(66, 59, 52) ;
+    transition: width 0.3s ease-out, height 0.3s ease-out;
+  }
+
+  .NavancorStyle:hover::after{
+    width: 100%;
+   
+    
+  }
+
+  /* Stili per il burger menu */
+.burger-menu {
+  display: none; /* Nascondi il burger menu per default */
+}
+
+.burger-links {
+  list-style: none;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.9); /* Sfondo semi-trasparente */
+  position: absolute;
+  top: 100%; /* Posiziona sotto il burger menu */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Ombra per il menu */
+  z-index: 1000; /* Assicura che sia sopra gli altri contenuti */
+  display: none; /* Nascondi il menu a scomparsa per default */
+}
+
+.burger-links li {
+  margin-bottom: 10px; /* Spazio tra le voci del menu */
+}
+
+.burger-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1.5rem;
+  color: rgb(66, 59, 52);
+}
+
+.burger-icon {
+  display: inline-block;
+  width: 25px;
+  height: 2px;
+  background-color: rgb(66, 59, 52);
+  transition: transform 0.3s ease-out;
+}
+
+.burger-button[aria-expanded="true"] .burger-icon {
+  transform: rotate(45deg);
+}
+
+.burger-button[aria-expanded="true"] + .burger-links {
+  display: block; /* Mostra il menu a scomparsa quando il burger button è espanso */
+}
+
+/* Media query per schermi fino a 992px */
+@media (max-width: 992px) {
+  .NavancorStyle {
+      display: none; /* Nascondi i link principali quando la larghezza è inferiore a 992px */
+  }
+
+  .burger-menu {
+      display: block; /* Mostra il container del burger menu */
+  }
+}
+
+  
+  
+   .hero {
     position: relative;
     width: 100%;
     height: 100vh; 
@@ -68,16 +162,17 @@
   }
 
   .hero-content {
+    text-align: center;
     color:white;
     /* font-weight: bold; */
     margin-top: 100px;
-    opacity: 1;
-    transition: opacity 5.5s ease;
+    opacity: 0;
+    transition: opacity 4.5s ease;
   }
   
   .show-hero {
     /* z-index: 0; */
-    opacity: 0;
+    opacity: 1;
   }
   
   
