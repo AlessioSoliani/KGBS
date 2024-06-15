@@ -48,7 +48,7 @@
     z-index: 1030; /* Bootstrap default z-index for fixed elements */
   }
 
-  ul{
+  .gradientNav{
     max-height: 30px;
     /* background: rgb(110,175,222); */
     background: linear-gradient(90deg, rgba(110,175,222,1) 0%, rgba(240,231,210,1) 36%, rgba(240,221,194,1) 90%);
@@ -89,19 +89,26 @@
 .burger-links {
   list-style: none;
   padding: 0;
-  background-color: rgba(255, 255, 255, 0.9); /* Sfondo semi-trasparente */
+  background: linear-gradient(90deg, rgba(110,175,222,0.7) 0%, rgba(240,231,210,0.7) 36%, rgba(240,221,194,0.7) 90%);
+  border-radius: 4px;
   position: absolute;
   top: 100%; /* Posiziona sotto il burger menu */
   left: 0;
   width: 100%;
+  max-width: 150px;
   text-align: center;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Ombra per il menu */
   z-index: 1000; /* Assicura che sia sopra gli altri contenuti */
   display: none; /* Nascondi il menu a scomparsa per default */
+
 }
 
 .burger-links li {
   margin-bottom: 10px; /* Spazio tra le voci del menu */
+}
+
+.linkBTNStyle {
+  text-decoration: none;
 }
 
 .burger-button {

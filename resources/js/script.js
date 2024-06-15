@@ -36,6 +36,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })
 
+document.addEventListener('DOMContentLoaded', function() {
+  const burgerButton = document.querySelector('.burger-button');
+  const burgerLinks = document.querySelector('.burger-links');
+  
+  burgerButton.addEventListener('click', function() {
+    const expanded = burgerButton.getAttribute('aria-expanded') === 'true' || false;
+    burgerButton.setAttribute('aria-expanded', !expanded);
+    
+    if (expanded) {
+      burgerLinks.style.display = 'none';
+    } else {
+      burgerLinks.style.display = 'block';
+    }
+  });
+
+})
+
 
 
 
