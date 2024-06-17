@@ -17,7 +17,7 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-12 col-md-4 d-flex justify-content-center">
-                <h5>La nostra gioia trabocca! Benvenuto nella casa virtuale della nostra fede, dove la gioia di Cristo risplende in ogni angolo. Preparati per un viaggio di ispirazione e meraviglia!</h5>
+                <h3>La nostra gioia trabocca! Benvenuto nella casa virtuale della nostra fede, dove la gioia di Cristo risplende in ogni angolo. Preparati per un viaggio di ispirazione e meraviglia!</h3>
               </div>
             </div>
             

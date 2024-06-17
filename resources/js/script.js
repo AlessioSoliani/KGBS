@@ -45,14 +45,20 @@ document.addEventListener('DOMContentLoaded', function() {
     burgerButton.setAttribute('aria-expanded', !expanded);
     
     if (expanded) {
-      burgerLinks.style.display = 'none';
+      burgerLinks.classList.remove('show');
+      setTimeout(() => {
+        burgerLinks.style.visibility = 'hidden';
+        burgerLinks.style.position = 'absolute';
+      }, 300); // Match the duration of the CSS transition
     } else {
-      burgerLinks.style.display = 'block';
+      burgerLinks.style.visibility = 'visible';
+      burgerLinks.style.position = 'static';
+      setTimeout(() => {
+        burgerLinks.classList.add('show');
+      }, 10); // Slight delay to ensure visibility:visible is applied
     }
   });
-
-})
-
+});
 
 
 

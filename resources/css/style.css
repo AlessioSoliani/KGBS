@@ -1,7 +1,11 @@
 /* nav section */
+a{
+  
+  font-family: 'Gambetta', serif;
+font-family: 'General Sans', sans-serif;
+}
 
-
-  .bgrPrimario{
+.bgrPrimario{
     background-color: rgb(221, 206, 178);
   }
 
@@ -32,36 +36,51 @@
     font-size: 0;
     /* font-family: Helvetica, Verdana, sans-serif;  */
   }
- 
 
-  .logoStyle{
-    
-    width: 25vw;
-    height: 9vh;
-    border-radius: 5px;
-  }
-
-  .fixed-top {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1030; /* Bootstrap default z-index for fixed elements */
+  
+  .logoNav{
+    width: 80vw;
   }
 
   .gradientNav{
-    max-height: 30px;
-    /* background: rgb(110,175,222); */
-    background: linear-gradient(90deg, rgba(110,175,222,1) 0%, rgba(240,231,210,1) 36%, rgba(240,221,194,1) 90%);
+    max-height: 60px;
+    font-size: large;
+    background: linear-gradient(90deg, rgba(110,175,222,0.4) 0%, rgba(240,231,210,0.5) 36%, rgba(240,221,194,0.3) 90%);
     border-radius: 4px;
   }
 
-  .NavancorStyle{
-    color:  rgb(66, 59, 52);
+  .NavancorStyle {
+    color: rgb(66, 59, 52);
     text-decoration: none;
     position: relative; /* Necessario per posizionare correttamente il pseudo-elemento */
     display: inline-block;
-    padding-bottom: 2px;    
+    padding-bottom: 2px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transizioni per colore e trasformazione */
   }
+  
+  .NavancorStyle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Spessore della linea sottostante */
+    background: radial-gradient(circle, rgba(215,200,145,0.9220938375350141) 0%, rgba(80,68,61,1) 29%);
+    transform: scaleX(0); /* Parte da invisibile */
+    transform-origin: bottom right; /* Origine della trasformazione */
+    transition: transform 0.3s ease; /* Transizione per l'ingrandimento */
+    margin-bottom: 2px;
+  }
+  
+  .NavancorStyle:hover {
+    color: rgb(66, 59, 52); /* Cambia il colore al passaggio del mouse */
+    transform: scale(1.3); /* Ingrandisce del 30% */
+  }
+  
+  .NavancorStyle:hover::after {
+    transform: scaleX(1); /* Mostra la linea sottostante espandendosi */
+  }
+  
 
   .NavancorStyle::after{
     content: '';
@@ -72,7 +91,7 @@
     bottom: 2px;
     left: 0;
     background-color: rgb(66, 59, 52) ;
-    transition: width 0.3s ease-out, height 0.3s ease-out;
+    transition: width 0.5s ease-out, height 0.5s ease-out;
   }
 
   .NavancorStyle:hover::after{
@@ -81,26 +100,39 @@
     
   }
 
+
+
   /* Stili per il burger menu */
+/* Stili per il burger menu */
 .burger-menu {
   display: none; /* Nascondi il burger menu per default */
 }
 
-.burger-links {
+.burger-links { 
   list-style: none;
   padding: 0;
   background: linear-gradient(90deg, rgba(110,175,222,0.7) 0%, rgba(240,231,210,0.7) 36%, rgba(240,221,194,0.7) 90%);
   border-radius: 4px;
   position: absolute;
   top: 100%; /* Posiziona sotto il burger menu */
-  left: 0;
+  left: 0;  
   width: 100%;
-  max-width: 150px;
+  max-width: 150px;  
   text-align: center;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Ombra per il menu */
   z-index: 1000; /* Assicura che sia sopra gli altri contenuti */
-  display: none; /* Nascondi il menu a scomparsa per default */
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 2s ease, max-height 2s ease;
+  visibility: hidden;
+ 
+}
 
+.burger-links.show {
+  opacity: 1;
+  max-height: 250px;  
+  visibility: visible;  
 }
 
 .burger-links li {
@@ -109,7 +141,10 @@
 
 .linkBTNStyle {
   text-decoration: none;
+ 
 }
+
+
 
 .burger-button {
   background: none;
@@ -125,7 +160,7 @@
   width: 25px;
   height: 2px;
   background-color: rgb(66, 59, 52);
-  transition: transform 0.3s ease-out;
+  transition: transform 0.9s ease-out;
 }
 
 .burger-button[aria-expanded="true"] .burger-icon {
@@ -137,7 +172,7 @@
 }
 
 /* Media query per schermi fino a 992px */
-@media (max-width: 992px) {
+@media (max-width: 742px) {
   .NavancorStyle {
       display: none; /* Nascondi i link principali quando la larghezza è inferiore a 992px */
   }
@@ -170,9 +205,9 @@
 
   .hero-content {
     text-align: center;
-    color:white;
+    color: rgb(221, 206, 178);
     /* font-weight: bold; */
-    margin-top: 100px;
+    margin-top: 250px;
     opacity: 0;
     transition: opacity 4.5s ease;
   }
