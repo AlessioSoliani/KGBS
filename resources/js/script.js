@@ -1,6 +1,6 @@
  
  
- 
+// content hero 
  let heroContent = document.querySelector('#hero-content');
 function checkHeroContent(){
   var triggerBottom = window.innerHeight *0.9;
@@ -15,8 +15,8 @@ function checkHeroContent(){
 document.addEventListener('scroll', checkHeroContent);
 window.addEventListener('load', checkHeroContent);
 console.log(heroContent);
-
-
+// content hero finito
+// video hero
 document.addEventListener("DOMContentLoaded", function () {
   let video = document.getElementById("video-homepage");
 
@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
       video.play();
   });
 })
-
+// video hero finito
+// jsMenu per smatphone
 document.addEventListener('DOMContentLoaded', function() {
   const burgerButton = document.querySelector('.burger-button');
   const burgerLinks = document.querySelector('.burger-links');
@@ -59,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-
 
 
 

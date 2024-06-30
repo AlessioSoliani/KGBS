@@ -14,7 +14,7 @@
     <ul class="burger-links">
         <li><a class=" coloreSecondario linkBTNStyle fs-6" aria-current="page" href="{{route('home')}}">Home</a></li>
         <li><a class=" coloreSecondario  linkBTNStyle fs-6" href="{{route('chiSiamo')}}">Chi Siamo</a></li>
-        <li><a class=" coloreSecondario linkBTNStyle fs-6" href="/spiritualita">Spiritualità</a></li>
+        <li><a class=" coloreSecondario linkBTNStyle fs-6" href="#">Spiritualità</a></li>
         <li><a class=" coloreSecondario linkBTNStyle fs-6" href="/struttura">Struttura</a></li>
         <li><a class=" coloreSecondario linkBTNStyle fs-6" aria-current="true" href="/formazione">Formazione</a></li>
         <li><a class=" coloreSecondario linkBTNStyle fs-6" aria-current="true" href="/storia">Storia</a></li>

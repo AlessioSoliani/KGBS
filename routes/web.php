@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class , 'home'])->name('home');
 Route::get('/chiSiamo',[PublicController::class , 'chiSiamo'])->name('chiSiamo');
+Route::resource('events',EventController::class);
