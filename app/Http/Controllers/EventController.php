@@ -12,7 +12,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+        return view('events.index',compact('events'));
     }
 
     /**
@@ -28,9 +29,33 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-    }
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:200',
+            'description' => 'required|string',
+            'date' => 'required|date',
+            'location' => 'required|string|max:200',            
+            'contact' => 'required|string|max:100',
+            'categories' => 'nullable|string',            
+            'image_url' => 'nullable|image' 
+        ]);
+    
+        $event = Event::create([
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+            'date' => $validatedData['date'],
+            'location' => $validatedData['location'],
+            'contact' => $validatedData['contact'],
+            'categories' => $validatedData['categories'] ?? null, // Se non è presente, imposta null
+           
+        ]);
+        //controllo che la richiesta ha un file chiamato image_url
+        if($request->hasFile('image_url')){
+            $event->image_url = $request->file('image_url')->storeAs('public/events/'.$event->id,'cover.jpg');
+            $event->save();
+        }
 
+        return redirect()->back()->with(['success'=>'Evento creato con successo']);
+        }        
     /**
      * Display the specified resource.
      */

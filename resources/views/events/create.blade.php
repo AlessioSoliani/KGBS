@@ -1,4 +1,5 @@
 <x-main>
+  
     <div class=" mt-5 container">
         <div class=" mt-5 row justify-content-center">
             <div class="col-12 col-md-4">
@@ -9,54 +10,58 @@
 
     <div class="container">
         <div class="row justify-content-center">
+            <div class="col-12 col-md-4">
+                @if(session('success'))
+                <div class=" mt-5 display-6 alert alert-info" role="alert">
+                    {{session('success')}}
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
+       
+
+    <div class="container">
+        <div class="row justify-content-center">
             <div class="col-6">
-                <form  method="POST" action="{{route('events.store')}}">
-                    @csrf
-                    <label class="form-label">Title:</label>
+                <form  method="POST" action="{{route('events.store')}}" enctype="multipart/form-data">
+                    @csrf                   
+                    <label class="form-label">Title</label>
                     <input type="text" class="form-control"  name="title" value="{{old('title')}}">
                     @error('title')
                         <span>{{$message}}</span>
                     @enderror
-                    <label class="form-label">Description:</label>
+                    <label class="form-label">Description</label>
                     <textarea  name="description" class="form-control" value="{{old('description')}}"></textarea>
                     @error('description')
                         <span>{{$message}}</span>
                     @enderror
-                    <label class="form-label">Date:</label>
+                    <label class="form-label">Date</label>
                     <input type="date" class="form-control" name="date" value="{{old('date')}}">
                     @error('date')
                         <span>{{$message}}</span>
                     @enderror
-                    <label class="form-label">Location:</label>
+                    <label class="form-label">Location</label>
                     <input type="text" class="form-control" name="location" value="{{old('location')}}">
                     @error('location')
                         <span>{{$message}}</span>
-                    @enderror
-                    <label class="form-label">Organizer:</label>
-                    <input type="text" class="form-control" name="organizer" value="{{old('organizer')}}">
-                    @error('organizer')
-                        <span>{{$message}}</span>
-                    @enderror
-                    <label class="form-label">Contact:</label>
+                    @enderror                  
+                    <label class="form-label">Contact</label>
                     <input type="text" class="form-control" name="contact" value="{{old('contact')}}">
                     @error('contact')
                         <span>{{$message}}</span>
                     @enderror
-                    <label class="form-label">Image URL:</label>
-                    <input type="url" class="form-control" value="{{old('image_url')}}"  name="image_url">
+                    <label class="form-label">Image</label>
+                    <input type="file" class="form-control" value="{{old('image_url')}}"  name="image_url">
                     @error('image_url')
                         <span>{{$message}}</span>
                     @enderror
-                    <label class="form-label">Categories:</label>
+                    <label class="form-label">Categories</label>
                     <input type="text" class="form-control" value="{{old('categories')}}"  name="categories">
                     @error('categories')
                         <span>{{$message}}</span>
                     @enderror
-                    <label class="form-label">Published:</label>
-                    <input type="checkbox" class="form-control" value="{{old('published')}}"  name="published">
-                    @error('published')
-                        <span>{{$message}}</span>
-                    @enderror
+                   
                     <div class=" mt-3 d-flex justify-content-center ">
                         <button type="submit" class="btn btn-outline-success">Invia</button>
                     </div>
@@ -84,6 +89,7 @@
         </div>
     </div>
 
+   
         
 </x-main>
 

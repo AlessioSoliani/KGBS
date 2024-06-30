@@ -11,7 +11,7 @@
 <body class="bgrPrimario" >
 
 
-<x-nav/>
+<x-nav></x-nav>
 
 
 
