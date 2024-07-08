@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class , 'home'])->name('home');
 Route::get('/chiSiamo',[PublicController::class , 'chiSiamo'])->name('chiSiamo');
+Route::get('/nuovo/evento',[EventController::class, 'createEvent'])->name('event.create');
 Route::resource('events',EventController::class);

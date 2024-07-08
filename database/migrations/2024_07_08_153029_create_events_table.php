@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('title',200);
             $table->text('description');
             $table->dateTime('date');
-            $table->string('location',200);            
+            $table->string('location',200); 
             $table->string('contact',100);
             $table->string('image_url')->nullable();
-            $table->string('categories')->nullable();            
+            $table->string('categories')->nullable(); 
             $table->timestamps();
         });
     }

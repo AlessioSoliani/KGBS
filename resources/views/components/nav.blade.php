@@ -14,6 +14,7 @@
                 <li><a class=" coloreSecondario linkBTNStyle fs-6" href="/struttura">Struttura</a></li>
                 <li><a class=" coloreSecondario linkBTNStyle fs-6" aria-current="true" href="/formazione">Formazione</a></li>
                 <li><a class=" coloreSecondario linkBTNStyle fs-6" aria-current="true" href="/storia">Storia</a></li>
+                
             </ul>
          </div>
 
