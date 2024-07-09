@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('location',200); 
             $table->string('contact',100);
             $table->string('image_url')->nullable();
-            $table->string('categories')->nullable(); 
-            $table->timestamps();
+           $table->timestamps();
         });
     }
 

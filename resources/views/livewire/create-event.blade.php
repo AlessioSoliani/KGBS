@@ -1,22 +1,18 @@
 <div>
-    <div class=" mt-5 container">
-        <div class=" mt-5 row justify-content-center">
-           <div class="col-12 col-md-4">
-               <h1 class=" mt-5 display-1 text-center">Create Event</h1>
+    <div class=" mt-5 pt-5 container">
+        <div class=" row justify-content-center">
+           <div class=" w-100 col-12 col-md-4">
+               <h1 class="mt-3 display-4 w-100 text-center">Create Event</h1>
            </div>
         </div>
     </div>         
-            {{-- <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-4">
-                        @if(session('success'))
-                        <div class=" mt-5 display-6 alert alert-info" role="alert">
-                            {{session('success')}}
-                        </div>
-                        @endif
-                    </div>
-                </div>
-            </div> --}}
+           
+                       @if(session()->has('message'))
+                       <div class=" d-flex flex-row justify-content-center mt-5 display-6 alert alert-info" role="alert">
+                          {{session('message')}}
+                       </div>
+                       @endif
+             
 
 
         <section class="container">
@@ -24,41 +20,41 @@
                 <div class="col-8  d-flex justify-content-start">
                     <form class=" w-75"  wire:submit.prevent="store">
                         @csrf  
-                        <label class="form-label">Title</label>
+                        <label class="form-label w-50 my-2 me-5 text-center ">Title</label>
                         <input type="text" class="form-control" wire:model="title" @error('title') is-invalid @enderror >
                         @error('title')
                             {{$message}}
                         @enderror
-                        <label class="form-label">Description</label>
+                        <label class="form-label w-50 my-2 me-5 text-center">Description</label>
                         <textarea wire:model="description" class="form-control" @error('description') is-invalid @enderror  ></textarea>
                         @error('description')
                             {{$message}}
                         @enderror
-                        <label class="form-label">Date</label>
+                        <label class="form-label w-50 my-2 me-5 text-center">Date</label>
                         <input type="date" class="form-control" wire:model="date" @error('date') is-invalid @enderror>
                         @error('date')
                             {{$message}}
                         @enderror
-                        <label class="form-label">Location</label>
+                        <label class="form-label w-50 my-2 me-5 text-center">Location</label>
                         <input type="text" class="form-control" wire:model="location" @error('location') is-invalid @enderror>
                         @error('location')
                             {{$message}}
                         @enderror
-                        <label class="form-label">Contact</label>
+                        <label class="form-label w-50 my-2 me-5 text-center">Contact</label>
                         <input type="text" class="form-control" wire:model="contact" @error('contact') is-invalid @enderror>
                         @error('contact')
                             {{$message}}
                         @enderror
-                        <label class="form-label">Image</label>
+                        <label class="form-label w-50 my-2 me-5 text-center">Image</label>
                         <input type="file" class="form-control" wire:model="image_url" @error('image_url') is-invalid @enderror>
                         @error('image_url')
                             {{$message}}
                         @enderror
-                        <label class="form-label">Categories</label>
+                        {{-- <label class="form-label w-50 my-2 me-5 text-center">Categories</label>
                         <input type="text" class="form-control" wire:model="categories" @error('categories') is-invalid @enderror>
                         @error('categories')
                             {{$message}}
-                        @enderror
+                        @enderror --}}
                        
                         <div class=" mt-3 d-flex justify-content-center ">
                             <button type="submit" class="btn btn-outline-success">Invia</button>
