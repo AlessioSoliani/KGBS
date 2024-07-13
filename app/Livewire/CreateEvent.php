@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Event;
 use Livewire\Component;
+use App\Models\Category;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 
@@ -16,19 +17,22 @@ class CreateEvent extends Component
     public $location;
     public $contact;
     public $image_url;
-    // public $categories;
+    public $cost;
+    public $category;
+    
 
 
     protected $rules =
             [
-                'title' => 'required|min:8|max:150',
+                'title' => 'required|min:8|max:30',
                 'description' => 'required|max:500',
                 'date' => 'required|regex:/^\d{4}-\d{2}-\d{2}$/',
                 'location' => 'required|min:8',
                 'contact' => 'required|min:8',
                 'image_url.*' => 'required|image|max:1024',
-                // 'categories' => 'required'
-            ];
+                'cost'=>'nullable|integer',
+                'category'=>'required'
+             ];
 
 
     protected $messages = 
@@ -48,16 +52,17 @@ class CreateEvent extends Component
     {   // Carico il file e ottiengo il percorso
         $imagePath = $this->image_url->store('events' , 'public');
         $this->validate();
-        Event::create([
+        $category = Category::find($this->category);
+        $category->events()->create([
             'title' => $this->title,
             'description' => $this->description,
             'date' => $this->date ? : null,
             'location' => $this->location,
             'contact' => $this->contact,
             'image_url' => $imagePath, // Salvo il percorso del file caricato
-            // 'categories' => $this->categories,
-
+            'cost'=>$this->cost,
         ]);
+    
         session()->flash('message' , 'Evento creato con successo');
         $this->clearForm();
     }
@@ -68,13 +73,14 @@ class CreateEvent extends Component
 
     public function clearForm()
     {
-        $this->title = '';
-        $this->description = '';
-        $this->date = '';
-        $this->location = '';
-        $this->contact = '';
-        $this->image_url = '';
-        // $this->categories = '';
+        $this->title ='';
+        $this->description ='';
+        $this->date ='';
+        $this->location ='';
+        $this->contact ='';
+        $this->image_url ='';
+        $this->cost='';
+        $this->category ='';
     }
 
     public function render()

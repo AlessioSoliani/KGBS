@@ -21,40 +21,50 @@
                     <form class=" w-75"  wire:submit.prevent="store">
                         @csrf  
                         <label class="form-label w-50 my-2 me-5 text-center ">Title</label>
-                        <input type="text" class="form-control" wire:model="title" @error('title') is-invalid @enderror >
+                        <input type="text" class="form-control" wire:model.change.debounce.500ms="title" @error('title') is-invalid @enderror >
                         @error('title')
                             {{$message}}
                         @enderror
                         <label class="form-label w-50 my-2 me-5 text-center">Description</label>
-                        <textarea wire:model="description" class="form-control" @error('description') is-invalid @enderror  ></textarea>
+                        <textarea wire:model.blur="description" class="form-control" @error('description') is-invalid @enderror  ></textarea>
                         @error('description')
                             {{$message}}
                         @enderror
                         <label class="form-label w-50 my-2 me-5 text-center">Date</label>
-                        <input type="date" class="form-control" wire:model="date" @error('date') is-invalid @enderror>
+                        <input type="date" class="form-control" wire:model.debounce.500ms="date" @error('date') is-invalid @enderror>
                         @error('date')
                             {{$message}}
                         @enderror
                         <label class="form-label w-50 my-2 me-5 text-center">Location</label>
-                        <input type="text" class="form-control" wire:model="location" @error('location') is-invalid @enderror>
+                        <input type="text" class="form-control" wire:model.debounce.500ms="location" @error('location') is-invalid @enderror>
                         @error('location')
                             {{$message}}
                         @enderror
-                        <label class="form-label w-50 my-2 me-5 text-center">Contact</label>
-                        <input type="text" class="form-control" wire:model="contact" @error('contact') is-invalid @enderror>
+                        <label class="form-label w-50 my-2 me-5 text-center">Contatto</label>
+                        <input type="text" class="form-control" wire:model.debounce.500ms="contact" @error('contact') is-invalid @enderror>
                         @error('contact')
                             {{$message}}
                         @enderror
-                        <label class="form-label w-50 my-2 me-5 text-center">Image</label>
-                        <input type="file" class="form-control" wire:model="image_url" @error('image_url') is-invalid @enderror>
+                        <label class="form-label w-50 my-2 me-5 text-center">Immagine</label>
+                        <input type="file" class="form-control" wire:model.debounce.500ms="image_url" @error('image_url') is-invalid @enderror>
                         @error('image_url')
                             {{$message}}
                         @enderror
-                        {{-- <label class="form-label w-50 my-2 me-5 text-center">Categories</label>
-                        <input type="text" class="form-control" wire:model="categories" @error('categories') is-invalid @enderror>
-                        @error('categories')
+
+                        <label class="w-50 my-2 me-5 text-center" for="category">Categoria</label>
+                        <select wire:model.defer='category' id='category' class="form-control">
+                            <option value=""></option>
+                            @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>                               
+                            @endforeach                            
+                          </select>
+
+
+                        <label class="form-label w-50 my-2 me-5 text-center">Costo</label>
+                        <input type="number" class="form-control" wire:model.debounce.500ms="cost" @error('cost') is-invalid @enderror>
+                        @error('cost')
                             {{$message}}
-                        @enderror --}}
+                        @enderror
                        
                         <div class=" mt-3 d-flex justify-content-center ">
                             <button type="submit" class="btn btn-outline-success">Invia</button>
