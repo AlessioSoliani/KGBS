@@ -19,7 +19,7 @@
                                  <h5 class="card-title">{{$event->title}}</h5>
                                  <p class="card-text">{{$event->description}}</p>
                                  <p class="card-text"><small>{{$event->date}}</small></p>
-                                 <a href="" class=" card-text btn btn-outline-primary">Per Saperne Di Più</a>
+                                 <a href="" class="btn btn-outline-primary">Per Saperne Di Più</a>
                                  <a href="" class="my-2 border-top pt-2 border-dark card-link shadow btn btn-outline-success">{{$event->category->name}}</a>
                                </div>
                              </div>
