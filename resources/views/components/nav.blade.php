@@ -14,7 +14,10 @@
                 <li><a class=" coloreSecondario linkBTNStyle fs-6" href="/struttura">Struttura</a></li>
                 <li><a class=" coloreSecondario linkBTNStyle fs-6" aria-current="true" href="/formazione">Formazione</a></li>
                 <li><a class=" coloreSecondario linkBTNStyle fs-6" aria-current="true" href="/storia">Storia</a></li>
-                
+                {{-- @if(auth()->check() && auth()->user()->is_admin) --}}               
+                        <li><a class="coloreSecondario linkBTNStyle fs-6" href="{{ route('event.create') }}">Nuovo Evento</a></li>                   
+                {{-- @endif --}}
+
             </ul>
          </div>
 
@@ -43,6 +46,21 @@
                     <li>
                         <a class="NavancorStyle fs-6" aria-current="true" href="/storia">Storia</a>
                     </li>
+                     {{-- @if(auth()->check() && auth()->user()->is_admin) --}}                    
+                          <li><a class="coloreSecondario linkBTNStyle fs-6" href="{{ route('event.create') }}">Nuovo Evento</a></li>                      
+                  {{-- @endif --}}
+                  <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorie
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                        @foreach ($categories as $category)
+                        <li>
+                            <a class="dropdown-item" href="{{route('categoryShow',compact('category'))}}">{{($category->name)}}</a>
+                        </li>                            
+                        @endforeach
+                    </ul>
+                  </li>
                 </ul>
             </div>
          

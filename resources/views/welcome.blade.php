@@ -24,6 +24,25 @@
         </div>
     </section>
 
+    <section class=" w-75 container mt-5">
+      <div class="row justify-content-center">
+        @foreach ($events as $event)
+          <div class="col-12 col-md-4">
+            <div class="card text-bg-dark">
+              <img src="https://picsum.photos/200" class="card-img" alt="...">
+              <div class="card-img-overlay">
+                <h5 class="card-title">{{$event->title}}</h5>
+                <p class="card-text">{{$event->description}}</p>
+                <p class="card-text"><small>{{$event->date}}</small></p>
+                <a href="" class="btn btn-outline-primary">Per Saperne Di Più</a>
+                <a href="" class="my-2 border-top pt-2 border-dark card-link shadow btn btn-outline-success">{{$event->category->name}}</a>
+              </div>
+            </div>
+          </div>          
+        @endforeach
+      </div>
+    </section>
+
 
 
 </x-main>
