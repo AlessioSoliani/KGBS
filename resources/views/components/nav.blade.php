@@ -47,10 +47,10 @@
                         <a class="NavancorStyle fs-6" aria-current="true" href="/storia">Storia</a>
                     </li>
                      {{-- @if(auth()->check() && auth()->user()->is_admin) --}}                    
-                          <li><a class="coloreSecondario linkBTNStyle fs-6" href="{{ route('event.create') }}">Nuovo Evento</a></li>                      
-                  {{-- @endif --}}
+                          <li><a class="coloreSecondario NavancorStyle linkBTNStyle fs-6" href="{{ route('event.create') }}">Nuovo Evento</a></li>                      
+                  
                   <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="#" class=" NavancorStyle nav-link dropdown-toggle" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categorie
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
@@ -61,6 +61,7 @@
                         @endforeach
                     </ul>
                   </li>
+                  {{-- @endif --}}
                 </ul>
             </div>
          
